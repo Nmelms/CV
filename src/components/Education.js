@@ -16,7 +16,7 @@ class Eduction extends React.Component{
     return(
       <div className="col-6 mt-5">
         <form>
-          <input type="text" placeHolder="enter highschool">
+          <input type="text" placeHolder="enter high school">
           </input>
         </form>
       </div>
