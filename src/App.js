@@ -42,7 +42,7 @@ class App extends React.Component {
       display = <Education/>
     }
     return (
-      <div className="App bg-secondary container-fluid ">
+      <div className="App bg-secondary d-flex justify-content-center container-fluid ">
           {display}
             
       </div>

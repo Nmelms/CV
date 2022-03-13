@@ -7,7 +7,7 @@ class General extends React.Component{
 
   render(){
     return(
-      <div className='d-flex flex-column col-6 bg-dark justify-content-center  vh-100 p-4'>
+      <div className='d-flex flex-column w-50 align-self-center bg-dark justify-content-center  vh-100 p-4'>
         <form onSubmit={this.props.handleSubmit}>
           <h1 className="text-white ">General</h1>
           <input 
