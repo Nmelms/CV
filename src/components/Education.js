@@ -1,26 +1,31 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class Eduction extends React.Component{
-  constructor(){
-    super()
-  }
-
-  handleChange = (e) => {
-    this.setState(
-      {
-        [e.target.id]: e.target.value     
-    })
+class Education extends React.Component{
+  constructor(props){
+    super(props)
   }
 
   render(){
     return(
-      <div className="col-6 mt-5">
-        <form>
-          <input type="text" placeHolder="enter high school">
-          </input>
-        </form>
+      <div>       
+          <h1>{this.props.state.firstName} {this.props.state.lastName}</h1>        
+          <h3>Email: {this.props.state.email}</h3>
+          <h3>Phone: {this.props.state.phone}</h3>
+          <h2>Eduction</h2>
+          <h3>I graduted from {this.props.state.schoolName} in {this.props.state.grad}</h3>
+          <h3>My field of study was {this.props.state.field}</h3>
+          <h2>A little about me:</h2>
+
+          
+          <p>{this.props.state.experience}</p>
+        
+        
+
+          <button onClick={this.props.handleEdit} className="btn-primary mt-2">
+            EDIT
+          </button>
       </div>
     )
   }
 }
-export default Eduction;
+export default Education;

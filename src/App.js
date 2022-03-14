@@ -34,17 +34,22 @@ class App extends React.Component {
     })
   }
 
+  handleEdit = (e) => {
+    this.setState({
+      currentPage: 'General'
+    })
+  }
+
   render(){
     let display
     if(this.state.currentPage === 'General'){
-      display = <General handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+      display = <General state={this.state} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
     }else{
-      display = <Education/>
+      display = <Education  handleSubmit={this.handleSubmit} handleEdit={this.handleEdit} state={this.state}/>
     }
     return (
       <div className="App bg-secondary d-flex justify-content-center container-fluid ">
-          {display}
-            
+          {display} 
       </div>
     )
   }
