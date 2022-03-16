@@ -1,59 +1,46 @@
 import './App.css';
 import General from './components/General.js'
 import Education from './components/Education.js'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Test from './components/Test.js'
+import { render } from '@testing-library/react';
 
-class App extends React.Component {
-  constructor(){
-       super()
-        this.state = {
-          currentPage: 'General',
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          schoolName: '',
-          field: '',
-          grad: '',
-          experience: '',
+const App = () => {
+  const [state, setState] = useState({
+    currentPage:'General',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    schoolName: '',
+    field: '',
+    grad: '',
+    experience: '',
+  })
 
-    }  
-  }
-
-  handleChange = (e) => {
-    this.setState(
-      {
-        [e.target.id]: e.target.value     
-    })
-  }
-
-  handleSubmit = (e) => {
+  let handleChange = (e) => {
     e.preventDefault()
-    this.setState({
-      currentPage: 'Education'
-    })
+    setState({...state, [e.target.id]: e.target.value})
   }
 
-  handleEdit = (e) => {
-    this.setState({
-      currentPage: 'General'
-    })
+  let handleSubmit = () => {
+    setState({...state, currentPage: 'Education'})
   }
 
-  render(){
-    let display
-    if(this.state.currentPage === 'General'){
-      display = <General state={this.state} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-    }else{
-      display = <Education  handleSubmit={this.handleSubmit} handleEdit={this.handleEdit} state={this.state}/>
-    }
-    return (
-      <div className="App bg-secondary d-flex justify-content-center container-fluid ">
-          {display} 
+  let handleEdit = () => {
+    setState({...state, currentPage: 'General'})
+  }
+  return(
+    state.currentPage === 'General' ? 
+      <div className="d-flex bg-secondary justify-content-center">
+        <General state={state} handleSubmit={handleSubmit} handleChange={handleChange}/>
       </div>
-    )
-  }
-
+       : 
+      <div className="d-flex">
+        <Education handleEdit={handleEdit} state={state}/>
+      </div>
+  )
 }
+
 
 export default App;

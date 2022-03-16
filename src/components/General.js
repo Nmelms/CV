@@ -40,7 +40,7 @@ class General extends React.Component{
           </input>
 
         <h1 className="text-white mt-2">Eduction</h1>
-          <input 
+        <input 
             className='mt-2' 
             onChange={this.props.handleChange} 
             placeholder='enter your most recent schools name'
